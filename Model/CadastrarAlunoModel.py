@@ -15,4 +15,4 @@ def CadastrarAlunoModel(nome,email,senha,nascimento,cpf):
         print(f"Erro ao cadastrar aluno: {e}")
         return False
     
-CadastrarAlunoModel("Guilherme","teste2@gmail.com","123","2000-01-01","15187846388")    
+CadastrarAlunoModel("Guilherme","teste@gmail.com","123","2025-12-25","1815848845")    
