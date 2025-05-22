@@ -19,8 +19,9 @@ def TelaLogin():
         if dados:
             if nivel == "Aluno":
                 print("Login realizado com sucesso!")
-                tela.withdraw() 
-                TelaAluno(dados,tela) 
+                tela.quit()  
+                tela.destroy()  
+                TelaAluno(frameAluno,dados) 
                 
                  # ← Agora envia os dados do aluno
             else:
@@ -29,7 +30,7 @@ def TelaLogin():
         else:
             print("Senha ou usuário incorretos.")
             messagebox.showerror("Erro", "Usuário ou senha incorretos.")
-
+    frameAluno = CTkFrame(tela)
     section = CTkFrame(tela, width=400, height=400, fg_color="transparent")
     section.place(relx=0.5, rely=0.5, anchor=CENTER)
 
