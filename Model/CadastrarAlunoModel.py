@@ -3,6 +3,12 @@ from passlib.hash import sha256_crypt
 
 def CadastrarAlunoModel(nome,email,senha,nascimento,cpf):
     try:
+        if (nome == "" or email == "" or senha == "" or nascimento == "" or cpf == ""):
+            print("Preencha todos os campos!")
+            return False
+        if (len(cpf) != 11):
+            print("CPF deve ter 11 dígitos!")
+            return False
         senhahash = sha256_crypt.hash(senha)
         conn=conectar()
         cursor=conn.cursor()
