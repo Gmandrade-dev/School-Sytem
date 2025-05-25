@@ -1,39 +1,62 @@
 import psycopg2
-from psycopg2 import sql
 
-# Parâmetros de conexão com o servidor (não com um banco específico)
-host = "localhost"
-user = "postgres"
-password = "admin@"
-port = 5432
+cnx= {
+    'host': 'ballast.proxy.rlwy.net',
+    'dbname': 'railway',
+    'user': 'postgres',
+    'password': 'TPuBdQJuTZkbhXrXNmgTXHNFIdMDUHUN',
+    'port': 57581
+}
 
-# Nome do novo banco de dados
-nome_banco = "db_escola"
+def conectar():
+    try:
+        connectando = psycopg2.connect(**cnx)
+        connectando.autocommit = True
+        print("ConexÃ£o estabelecida com sucesso!")
+        return connectando
+    except Exception as e:
+        print(f"Erro ao conectar ao banco de dados: {e}")
+        return None
 
-# Conecta ao servidor PostgreSQL (no banco 'postgres', que sempre existe)
-try:
-    conn = psycopg2.connect(
-        dbname="db_escola",  # banco padrão para conexão inicial
-        user=user,
-        password=password,
-        host=host,
-        port=port
-    )
-    conn.autocommit = True  # necessário para executar CREATE DATABASE fora de uma transação
-    cursor = conn.cursor()
 
-    # Cria o banco de dados
-    cursor.execute(sql.SQL("CREATE DATABASE {}").format(
-        sql.Identifier(nome_banco)
-    ))
-
-    print(f"Banco de dados '{nome_banco}' criado com sucesso!")
-
-except psycopg2.Error as e:
-    print(f"Erro ao criar banco de dados: {e}")
-
-finally:
-    if conn:
+def criar_tabela_aluno():
+    try:
+        conexao = conectar()
+        cursor = conexao.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS alunos (
+                matricula SERIAL PRIMARY KEY,
+                nome VARCHAR(100),
+                cpf VARCHAR(100),
+                email VARCHAR(100),
+                senha VARCHAR(100)
+            )
+        ''')
+        print("Tabela 'alunos' criada com sucesso!")
+    except Exception as e:
+        print(f"Erro ao criar tabela: {e}")
+    finally:
         cursor.close()
-        conn.close()
 
+
+def criar_tabela_disciplinas():
+    try:
+        conexao = conectar()
+        cursor = conexao.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS disciplinas (
+                id_disciplina SERIAL PRIMARY KEY,
+                nome VARCHAR(100),
+                descricao TEXT
+            )
+        ''')
+        print("Tabela 'cursos' criada com sucesso!")
+    except Exception as e:
+        print(f"Erro ao criar tabela: {e}")
+    finally:
+        cursor.close()
+
+
+
+
+# criar_tabela_aluno()

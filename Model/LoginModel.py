@@ -1,4 +1,4 @@
-from cnx import conectar
+from Model.cnx import conectar
 from passlib.hash import sha256_crypt
 
 def LoginModel(email,senha,tabela):
@@ -23,5 +23,4 @@ def LoginModel(email,senha,tabela):
         return False
     
 
-    
 

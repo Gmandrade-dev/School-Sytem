@@ -2,22 +2,18 @@ from customtkinter import *
 from View.TelaPerfil import TelaPerfil
 from View.TelaNota import TelaNota
 
-def TelaAluno(frame, dados):
-
+def TelaAluno(main, dados, nivel, callback_logout):
     if not dados:
         from View.TelaLogin import TelaLogin
         print("Dados não encontrados.")
-        TelaLogin()  
-        return  
+        TelaLogin(main, callback_logout)
+        return
 
-    menu = CTkTabview(frame)
-    
-    menu.pack(pady=5, padx=5, fill="both", expand=True)
-    menu.add("Notas")
-    menu.add("Perfil")
-    
-    notas_tab  = menu.tab("Notas")
-    perfil_tab = menu.tab("Perfil")
+    menu = CTkTabview(main)
+    menu.pack(fill="both", expand=True)
+
+    notas_tab = menu.add("Notas")
+    perfil_tab = menu.add("Perfil")
 
     TelaNota(notas_tab, dados)
-    TelaPerfil(perfil_tab, dados)
+    TelaPerfil(perfil_tab, dados, nivel, callback_logout)
