@@ -23,7 +23,7 @@ def mostrar_tela_login():
     limpar_tela()
     TelaLogin(frame_container, mostrar_tela_usuario)
 
-def mostrar_tela_usuario(dados, nivel):
+def mostrar_tela_usuario(dados, nivel): 
     limpar_tela()
     if nivel == "aluno":
         TelaAluno(frame_container, dados, nivel, mostrar_tela_login)

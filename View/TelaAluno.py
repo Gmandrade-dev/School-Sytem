@@ -17,3 +17,4 @@ def TelaAluno(main, dados, nivel, callback_logout):
 
     TelaNota(notas_tab, dados)
     TelaPerfil(perfil_tab, dados, nivel, callback_logout)
+   

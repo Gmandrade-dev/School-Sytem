@@ -1,14 +1,8 @@
 from Model.cnx import conectar
-from passlib.hash import sha256_crypt
 
-def CadastrarAlunoModel(nome,email,senha,cpf):
+
+def CadastrarUserModel(nome,email,senha,cpf, tipo_usuario):
     try:
-        if (nome == "" or email == "" or senha == "" or cpf == ""):
-            print("Preencha todos os campos!")
-            return False
-        if (len(cpf) != 11):
-            print("CPF deve ter 11 dígitos!")
-            return False
         senhahash = sha256_crypt.hash(senha)
         conn=conectar()
         cursor=conn.cursor()
@@ -21,4 +15,3 @@ def CadastrarAlunoModel(nome,email,senha,cpf):
         print(f"Erro ao cadastrar aluno: {e}")
         return False
     
-CadastrarAlunoModel("Guilherme","teste@gmail.com","123","18158481845")    
