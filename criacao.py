@@ -153,14 +153,14 @@ def inserir_dados_aluno():
         conexao = conectar()
         cursor = conexao.cursor()
         cursor.execute('''
-            INSERT INTO aluno (matricula, cpf, nome, email, senha, status) VALUES
-                ('1', '12345678901', 'João Silva', 'joao@gmail.com', 'aluno', true),
-                ('2', '12345678902', 'Patrick Kobi', 'kobi@gmail.com', 'kobi', true),
-                ('3', '12345678903', 'Yuri Berna', 'yuri@gmail.com', 'yuri', true),
-                ('4', '12345678904', 'Guilherme Barbosa', 'barbosa@gmail.com', 'barbosa', true),
-                ('5', '12345678905', 'Osvaldo Neto', 'neto@gmail.com', 'neto', true),
-                ('6', '12345678906', 'Arlindo Neto', 'neto2@gmail.com', 'neto2', true),
-                ('7', '123456789014', 'Aluno Teste', 'aluno@gmail.com', '123456', true);
+            INSERT INTO aluno (cpf, nome, email, senha, status) VALUES
+                ('12345678901', 'João Silva', 'joao@gmail.com', 'aluno', true),
+                ('12345678902', 'Patrick Kobi', 'kobi@gmail.com', 'kobi', true),
+                ('12345678903', 'Yuri Berna', 'yuri@gmail.com', 'yuri', true),
+                ('12345678904', 'Guilherme Barbosa', 'barbosa@gmail.com', 'barbosa', true),
+                ('12345678905', 'Osvaldo Neto', 'neto@gmail.com', 'neto', true),
+                ('12345678906', 'Arlindo Neto', 'neto2@gmail.com', 'neto2', true),
+                ('12345678909', 'Aluno Teste', 'aluno@gmail.com', '123456', true);
         ''')
         print("Dados inseridos com sucesso!")
     except Exception as e:
@@ -171,14 +171,14 @@ def inserir_dados_professor():
         conexao = conectar()
         cursor = conexao.cursor()
         cursor.execute('''
-            INSERT INTO professor (matricula, cpf, nome, email, senha, status) VALUES
-                ('1', '12345678901', 'João Santos', 'santos@gmail.com', 'joao', true),
-                ('2', '12345678902', 'Walter Kobi', 'walter@gmail.com', 'kobi123', true),
-                ('3', '12345678903', 'Yuri Olavo', 'olavo@gmail.com', 'yuri123', true),
-                ('4', '12345678904', 'Guilherme Andrade', 'gui@gmail.com', 'barbosa123', true),
-                ('5', '12345678905', 'Sobrinho Neto', 'neto3@gmail.com', 'neto123', true),
-                ('6', '12345678906', 'Arlindo Neto', 'arlindo2@gmail.com', 'neto321', true),
-                ('7', '123456789014', 'Professor Teste', 'professor@gmail.com', '123456', true);
+            INSERT INTO professor (cpf, nome, email, senha, status) VALUES
+                ('12345678901', 'João Santos', 'santos@gmail.com', 'joao', true),
+                ('12345678902', 'Walter Kobi', 'walter@gmail.com', 'kobi123', true),
+                ('12345678903', 'Yuri Olavo', 'olavo@gmail.com', 'yuri123', true),
+                ('12345678904', 'Guilherme Andrade', 'gui@gmail.com', 'barbosa123', true),
+                ('12345678905', 'Sobrinho Neto', 'neto3@gmail.com', 'neto123', true),
+                ('12345678906', 'Arlindo Neto', 'arlindo2@gmail.com', 'neto321', true),
+                ('12345678907', 'Professor Teste', 'professor@gmail.com', '123456', true);
         ''')
         print("Dados inseridos com sucesso!")
     except Exception as e:
