@@ -125,3 +125,6 @@ def criar_tabela_nota():
         print(f"Erro ao criar tabela: {e}")
     finally:
         cursor.close()
+
+
+
