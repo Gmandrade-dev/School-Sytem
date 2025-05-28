@@ -1,4 +1,5 @@
 import psycopg2
+from passlib.hash import sha256_crypt
 
 host = 'localhost'
 user = 'postgres'      
@@ -148,38 +149,30 @@ def criar_tabela_nota():
 
 
 # Etapa 4: Inserir dados em aluno e professor
-def inserir_dados_aluno():
+def inserir_dados_aluno(nome, email, senha, cpf):
     try:
         conexao = conectar()
         cursor = conexao.cursor()
-        cursor.execute('''
-            INSERT INTO aluno (cpf, nome, email, senha, status) VALUES
-                ('12345678901', 'João Silva', 'joao@gmail.com', 'aluno', true),
-                ('12345678902', 'Patrick Kobi', 'kobi@gmail.com', 'kobi', true),
-                ('12345678903', 'Yuri Berna', 'yuri@gmail.com', 'yuri', true),
-                ('12345678904', 'Guilherme Barbosa', 'barbosa@gmail.com', 'barbosa', true),
-                ('12345678905', 'Osvaldo Neto', 'neto@gmail.com', 'neto', true),
-                ('12345678906', 'Arlindo Neto', 'neto2@gmail.com', 'neto2', true),
-                ('12345678909', 'Aluno Teste', 'aluno@gmail.com', '123456', true);
-        ''')
+        senha_hash = sha256_crypt.hash(senha)  # Exemplo de senha criptografada
+        cursor.execute("INSERT INTO aluno (cpf, nome, email, senha) VALUES (%s, %s, %s, %s)",(cpf, nome, email, senha_hash))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
         print("Dados inseridos com sucesso!")
     except Exception as e:
-        print(f"Erro ao criar tabela: {e}")
+        print(f"Erro ao inserir dados: {e}")
 
-def inserir_dados_professor():
+          
+
+def inserir_dados_professor(nome, email, senha, cpf):
     try:
         conexao = conectar()
         cursor = conexao.cursor()
-        cursor.execute('''
-            INSERT INTO professor (cpf, nome, email, senha, status) VALUES
-                ('12345678901', 'João Santos', 'santos@gmail.com', 'joao', true),
-                ('12345678902', 'Walter Kobi', 'walter@gmail.com', 'kobi123', true),
-                ('12345678903', 'Yuri Olavo', 'olavo@gmail.com', 'yuri123', true),
-                ('12345678904', 'Guilherme Andrade', 'gui@gmail.com', 'barbosa123', true),
-                ('12345678905', 'Sobrinho Neto', 'neto3@gmail.com', 'neto123', true),
-                ('12345678906', 'Arlindo Neto', 'arlindo2@gmail.com', 'neto321', true),
-                ('12345678907', 'Professor Teste', 'professor@gmail.com', '123456', true);
-        ''')
+        senha_hash = sha256_crypt.hash(senha)  # Exemplo de senha criptografada
+        cursor.execute("INSERT INTO professor (cpf, nome, email, senha) VALUES (%s, %s, %s, %s)",(cpf, nome, email, senha_hash))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
         print("Dados inseridos com sucesso!")
     except Exception as e:
         print(f"Erro ao criar tabela: {e}")
@@ -192,10 +185,7 @@ criar_tabela_disciplina()
 criar_tabela_aluno_disciplina()
 criar_tabela_nota()
 print("Todas as tabelas criadas com sucesso!")
-inserir_dados_aluno()
-inserir_dados_professor()
+inserir_dados_aluno ('João da Silva', 'teste', '123', '18154312458')
+inserir_dados_professor('João da Silva', 'admin', '123', '18254411458')
 print("Dados iniciais inseridos com sucesso!")
-
-
-
 
