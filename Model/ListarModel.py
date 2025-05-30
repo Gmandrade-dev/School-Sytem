@@ -1,5 +1,6 @@
 from customtkinter import *
 from Model.cnx import conectar
+from tkinter import messagebox
 #import psycopg2
 
 def listar_aluno():
@@ -10,8 +11,26 @@ def listar_aluno():
     dados = cursor.fetchall()
     cursor.close()
     conn.close()
-    print(dados)
     return dados
+
+def listar_aluno_um(busca):
+    """Retorna todos os alunos cadastrados"""
+
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute(f"SELECT * FROM aluno WHERE matricula = %s", (busca))
+
+    dados = cursor.fetchone()
+    if dados:
+        return list(dados)  # converte a tupla em lista
+    else:
+        messagebox.showinfo("Consulta de Alunos", "Nenhum aluno encontrado.")
+    
+    # cursor.close()
+    # conn.close()
+    
+    # return dados
 
 def listar_professor():
     """Retorna todos os professores cadastrados"""
