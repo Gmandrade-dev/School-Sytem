@@ -18,14 +18,14 @@ def listar_aluno_um(busca):
 
     conn = conectar()
     cursor = conn.cursor()
-
-    cursor.execute(f"SELECT * FROM aluno WHERE matricula = %s", (busca))
+    
+    cursor.execute(f"SELECT * FROM aluno WHERE matricula = %s", [busca]) # Retorna um aluno específico baseado na matrícula, retornando uma tupla com os dados do aluno.
 
     dados = cursor.fetchone()
     if dados:
         return list(dados)  # converte a tupla em lista
     else:
-        messagebox.showinfo("Consulta de Alunos", "Nenhum aluno encontrado.")
+        messagebox.showinfo("Consulta de Alunos", "Nenhum aluno encontrado.") # Se não encontrar o aluno, exibe uma mensagem
     
     # cursor.close()
     # conn.close()
