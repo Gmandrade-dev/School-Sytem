@@ -23,11 +23,14 @@ def TelaLogin(main, callback_trocar_tela):
 
     nivelAcesso = CTkComboBox(section, values=["aluno", "professor"], width=200, height=40)
     nivelAcesso.pack(pady=20)
+    nivelAcesso.set("professor")  
 
     campo_email = CTkEntry(section, placeholder_text="Email", width=200, height=40)
+    campo_email.insert(0, "admin")  # Preencher com um email padrão, se necessário
     campo_email.pack(pady=20)
 
     campo_senha = CTkEntry(section, placeholder_text="Senha", width=200, height=40, show="*")
+    campo_senha.insert(0, "123")  # Preencher com uma senha padrão, se necessário
     campo_senha.pack(pady=20)
 
     mostrar = CTkCheckBox(section, text="Mostrar Senha")

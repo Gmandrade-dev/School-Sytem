@@ -20,7 +20,7 @@ def conectar():
     try:
         connectando = psycopg2.connect(**bdlocal)
         connectando.autocommit = True
-        #print("Conexão estabelecida com sucesso!")
+        print("Conexão estabelecida com sucesso!")
         return connectando
     except Exception as e:
         print(f"Erro ao conectar ao banco de dados: {e}")

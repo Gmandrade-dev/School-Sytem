@@ -10,23 +10,23 @@ def TelaCadastrar(cadastro_tab, dados, user_nivel, callback_logou):
     titulo.pack(pady=20)
 
     # Campo Nome
-    entrada_nome = ctk.CTkEntry(cadastro_tab, placeholder_text="Nome completo", height=50, width=200)
+    entrada_nome = ctk.CTkEntry(cadastro_tab, placeholder_text="Nome completo", height=50, width=300)
     entrada_nome.pack(pady=10)
 
     # Campo CPF
-    entrada_cpf = ctk.CTkEntry(cadastro_tab, placeholder_text="CPF (somente números)", height=50, width=200)
+    entrada_cpf = ctk.CTkEntry(cadastro_tab, placeholder_text="CPF (somente números)", height=50, width=300)
     entrada_cpf.pack(pady=10)
 
     # Campo Email
-    entrada_email = ctk.CTkEntry(cadastro_tab, placeholder_text="Email", height=50, width=200)
+    entrada_email = ctk.CTkEntry(cadastro_tab, placeholder_text="Email", height=50, width=300)
     entrada_email.pack(pady=10)
 
     # Campo Senha
-    entrada_senha = ctk.CTkEntry(cadastro_tab, placeholder_text="Senha", show="*", height=50, width=200)
+    entrada_senha = ctk.CTkEntry(cadastro_tab, placeholder_text="Senha", show="*", height=50, width=300)
     entrada_senha.pack(pady=10)
 
     # Combobox sem placeholder_text, com valor inicial definido pelo set
-    tipo = ctk.CTkComboBox(cadastro_tab, values=["Aluno", "Professor"], height=50, width=200)
+    tipo = ctk.CTkComboBox(cadastro_tab, values=["Aluno", "Professor"], height=50, width=300)
     tipo.set("Selecione o tipo")
     tipo.pack(pady=10)
 
@@ -61,5 +61,5 @@ def TelaCadastrar(cadastro_tab, dados, user_nivel, callback_logou):
             messagebox.showerror("Erro", mensagem)
 
     # Botão de Cadastro
-    botao_cadastrar = ctk.CTkButton(cadastro_tab, text="Cadastrar", command=cadastrar, height=50)
+    botao_cadastrar = ctk.CTkButton(cadastro_tab, text="Cadastrar", command=cadastrar, height=50,width=300)
     botao_cadastrar.pack(pady=20)

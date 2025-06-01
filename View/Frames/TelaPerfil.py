@@ -5,10 +5,7 @@ from tkinter import messagebox
 def TelaPerfil(frame, dados, tabela, callback_logout):
     try:
         if not dados:
-            from View.TelaLogin import TelaLogin
-            print("Dados não encontrados.")
-            TelaLogin(frame)
-            return
+          callback_logout
 
         def sair_conta():
             # Em vez de destruir frame e chamar TelaLogin diretamente,

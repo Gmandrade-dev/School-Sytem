@@ -1,6 +1,6 @@
 from customtkinter import *
-from View.TelaPerfil import TelaPerfil
-from View.TelaNota import TelaNota
+from View.Frames.TelaPerfil import TelaPerfil
+from View.Frames.TelaNota import TelaNota
 
 def TelaAluno(main, dados, nivel, callback_logout):
     if not dados:

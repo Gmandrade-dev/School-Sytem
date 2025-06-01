@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 # Criar janela principal
 main = CTk()
-main.geometry("1000x670")
+main.geometry("1280x700")
 main.title("School System")
 main.resizable(False, False)
 set_appearance_mode("dark")

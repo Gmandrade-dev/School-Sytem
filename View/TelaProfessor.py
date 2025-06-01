@@ -1,7 +1,7 @@
 from customtkinter import *
-from View.TelaPerfil import TelaPerfil
-from View.TelaCadrastar import TelaCadastrar
-from View.TelaGestao import TelaGestao
+from View.Frames.TelaPerfil import TelaPerfil
+from View.Frames.TelaCadrastar import TelaCadastrar
+from View.Frames.TelaGestao import TelaGestao
 from View.TelaConsulta import TelaConsulta
 
 def TelaProfessor(main, dados,user_nivel, callback_logout):
@@ -14,13 +14,13 @@ def TelaProfessor(main, dados,user_nivel, callback_logout):
     menu = CTkTabview(main)
     menu.pack(fill="both", expand=True)
 
-    
-    notas_tab = menu.add("Notas")
+    consulta_tab = menu.add("Consulta")
+    # notas_tab = menu.add("Notas")
     gestao_tab = menu.add("Gestão")
     cadastro_tab = menu.add("Cadastro")
-    displina_tab = menu.add("Disciplinas")
+    # displina_tab = menu.add("Disciplinas")
     perfil_tab = menu.add("Perfil")
-    consulta_tab = menu.add("Consulta")
+    
 
 
     TelaPerfil(perfil_tab, dados, user_nivel, callback_logout)
