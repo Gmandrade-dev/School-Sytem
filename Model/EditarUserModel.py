@@ -20,7 +20,7 @@ def EditarSenhaModel(matricula, senha, tabela):
         conn.commit()
         cursor.close()
         conn.close()
-        print("Senha editada com sucesso!")
+        # print("Senha editada com sucesso!")
         return True
         
     except Exception as e:

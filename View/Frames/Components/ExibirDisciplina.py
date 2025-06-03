@@ -1,6 +1,7 @@
 from tkinter import messagebox
 from customtkinter import *
 from Controller.ExcluirController import ExcluirDisciplinaController
+from Controller.EditarController import EditarDisciplinaController
 
 
 def ExibirDisciplinaComponent(scroll, dados, callback_recarregar):
@@ -38,6 +39,7 @@ def ExibirDisciplinaComponent(scroll, dados, callback_recarregar):
         entry_matricula_prof = CTkEntry(scroll, width=120, height=45)
         entry_matricula_prof.insert(0, matricula_professor)
         entry_matricula_prof.grid(row=idx, column=2, padx=5, pady=5)
+        
 
         btn_editar = CTkButton(scroll, text="Editar", width=100, height=45)
         btn_editar.grid(row=idx, column=4, padx=5, pady=5)

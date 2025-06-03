@@ -12,7 +12,7 @@ def CadastrarAlunoModel(nome, email, senha, cpf):
         conn.commit()
         cursor.close()
         conn.close()
-        print("Cadastro de aluno realizado com sucesso!")
+        # print("Cadastro de aluno realizado com sucesso!")
         return True
     except Exception as e:
         print(f"Erro ao cadastrar aluno: {e}")
@@ -30,7 +30,7 @@ def CadastrarProfessorModel(nome, email, senha, cpf):
         conn.commit()
         cursor.close()
         conn.close()
-        print("Cadastro de professor realizado com sucesso!")
+        # print("Cadastro de professor realizado com sucesso!")
         return True
     except Exception as e:
         print(f"Erro ao cadastrar professor: {e}")
@@ -54,7 +54,7 @@ def VerificarUserModel(email):
         conn.close()
 
         if aluno or professor:
-            print("Usuário já cadastrado!")
+            # print("Usuário já cadastrado!")
             return True  # Usuário existe
         else:
             print("Usuário não cadastrado!")
@@ -77,7 +77,7 @@ def CadastrarNotasModel(matricula, disciplina, av1, av2,av3):
         conn.commit()
         cursor.close()
         conn.close()
-        print("Notas cadastradas com sucesso!")
+        # print("Notas cadastradas com sucesso!")
         return True
     except Exception as e:
         print(f"Erro ao cadastrar notas: {e}")
@@ -93,7 +93,7 @@ def CadastrarDisciplinaModel(nome, matricula_prof):
         conn.commit()
         cursor.close()
         conn.close()
-        print("Disciplina cadastrada com sucesso!")
+        # print("Disciplina cadastrada com sucesso!")
         return True
     except Exception as e:
         print(f"Erro ao cadastrar disciplina: {e}")
@@ -107,7 +107,7 @@ def VerificarUserExistsModel(tabela, matricula):
         cursor.close()
         conn.close()
         if resultado:
-            print(f"Usuário encontrado na tabela {tabela}!")
+            # print(f"Usuário encontrado na tabela {tabela}!")
             return True
         else:
             print(f"Usuário não encontrado na tabela {tabela}.")
@@ -125,7 +125,7 @@ def VerificarDisciplinaExistsModel(id_disciplina):
         cursor.close()
         conn.close()
         if resultado:
-            print("Disciplina já cadastrada!")
+            # print("Disciplina já cadastrada!")
             return True
         else:
             print("Disciplina não cadastrada.")

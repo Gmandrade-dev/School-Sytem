@@ -11,8 +11,7 @@ def LoginModel(email,senha,tabela):
             print(usuario)
             senha_hash = usuario[3]
             if sha256_crypt.verify(senha,senha_hash):
-                print("Login realizado com sucesso!")
-                
+                                
                 return usuario
             else:
                 

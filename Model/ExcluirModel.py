@@ -8,7 +8,7 @@ def ExcluirNotaModel(id_nota):
         con.commit()
         cursor.close()
         con.close()
-        print(f"Nota com ID {id_nota} excluída com sucesso.")
+        # print(f"Nota com ID {id_nota} excluída com sucesso.")
         return True
     except Exception as e:
         print(f"Erro ao excluir nota: {e}")
@@ -22,7 +22,7 @@ def ExcluirDisciplinaModel(id_disciplina):
         con.commit()
         cursor.close()
         con.close()
-        print(f"Disciplina com ID {id_disciplina} excluída com sucesso.")
+        # print(f"Disciplina com ID {id_disciplina} excluída com sucesso.")
         return True
     except Exception as e:
         print(f"Erro ao excluir disciplina: {e}")
