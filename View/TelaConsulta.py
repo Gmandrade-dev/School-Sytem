@@ -168,56 +168,8 @@ def TelaConsulta(consulta_tab, dados, user_nivel, callback_logout): # FUNÇÃO P
     selecionar.pack(padx=5, pady=5)
     selecionar.set("Aluno") # SETANDO O VALOR INICIAL DO COMBOBOX PARA ALUNO
 
-    entry_buscar = ctk.CTkEntry(container, placeholder_text="DIGITE A MATRÍCULA DO ALUNO OU PROFESSOR!") # ENTRY PARA BUSCAR A MATRICULA DE UM ALUNO ESPECÍFICO
+    entry_buscar = ctk.CTkEntry(container, placeholder_text="DIGITE A MATRÍCULA DO ALUNO OU PROFESSOR!") # ENTRY PARA BUSCAR A MATRICULA 
     entry_buscar.pack(pady=10, padx=20, fill="x")
 
     janela_busca = ctk.CTkScrollableFrame(container) # FRAME SCROLLABLE PARA MOSTRAR OS DADOS DOS ALUNOS CADASTRADOS
     janela_busca.pack(expand=True, fill="both", padx=20, pady=20)
-
-
-    
-
-    
-         
-        
-
-    
-    
-
-
-
-
-    
-
-
-
-# Janela principal
-#root = tk.Tk()
-#root.title("Sistema de Alunos")
-
-#botao_abrir = tk.Button(root, text="Abrir Janela de Busca", command=abrir_janela_busca)
-#botao_abrir.pack(pady=20)
-
-# Criar Treeview com colunas
-#colunas = ("Matrícula", "CPF", "Nome", "Email", "Senha", "Status")
-#tree = ttk.Treeview(root, columns=colunas, show='headings')
-
-#for coluna in colunas:
-#    tree.heading(coluna, text=coluna)
-#    tree.column(coluna, width=100, anchor='center')
-#
-#tree.pack(fill=tk.BOTH, expand=True)
-
-# Interface pronta
-
-#def carregar_dados_professor():
-#    professores = listar_professor()
-#    for professor in professores:
-        # Mascarar a senha
-#        professor_formatado = professor[:4] + ('********', professor[5])
-#        tree.insert('', 'end', values=professor_formatado)
-
-
-
-
-
