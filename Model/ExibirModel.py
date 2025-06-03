@@ -9,7 +9,7 @@ def ExibirAllModel(tabela):
         cursor.close()
         conn.close()
         if resultado:
-            print(f"Dados exibidos da tabela {tabela}: {resultado}")
+            #print(f"Dados exibidos da tabela {tabela}: {resultado}")
             return resultado
         else:
             return False
