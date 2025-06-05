@@ -86,6 +86,7 @@ def TelaPerfil(frame, dados, tabela, callback_logout):
         label_cpf.pack(anchor="w")
         campo_cpf = CTkEntry(frame_cpf, width=200, height=50)
         campo_cpf.insert(0, cpf)
+        campo_cpf.configure(state="readonly")
         campo_cpf.pack()
 
         botao_editar_campos = CTkButton(container, text="Editar Campos", width=420, height=40, command=editar_campos)
