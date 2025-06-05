@@ -4,7 +4,7 @@ def ExibirAllModel(tabela):
     try:
         conn=conectar()
         cursor=conn.cursor()
-        cursor.execute(f"SELECT * FROM {tabela} limit 30")
+        cursor.execute(f"SELECT * FROM {tabela} limit 20")
         resultado = cursor.fetchall()
         cursor.close()
         conn.close()
@@ -17,28 +17,25 @@ def ExibirAllModel(tabela):
         print(f"Erro ao exibir dados selecionados: {e}")
         return False
 
-
-def PesquisarNotaModel(matricula_aluno):
+def ExibirOneModel(tabela, id):
     try:
         conn = conectar()
         cursor = conn.cursor()
-
-        query = """
-            SELECT id_nota, matricula_aluno, id_disciplina, nota1, nota2, nota3, media
-            FROM notas
-            WHERE matricula_aluno = %s
-        """
-
-        cursor.execute(query, (matricula_aluno,))
+        if tabela == "disciplina":
+            cursor.execute(f"SELECT * FROM {tabela} WHERE matricula_professor = %s", (id,))
+        elif tabela == "nota":
+            cursor.execute(f"SELECT * FROM {tabela} WHERE matricula_aluno = %s", (id,))
+        else:
+            return False
         resultado = cursor.fetchall()
-
         cursor.close()
         conn.close()
-
         if resultado:
+            # print(f"Dados exibidos da tabela {tabela} para o aluno {id}: {resultado}")
             return resultado
         else:
             return False
     except Exception as e:
-        print(f"Erro ao pesquisar nota: {e}")
+        print(f"Erro ao exibir dados específicos: {e}")
         return False
+

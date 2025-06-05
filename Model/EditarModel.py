@@ -12,16 +12,18 @@ def EditarDisciplinaModel(id_disciplina, nome, matricula_professor):
             WHERE id_disciplina = %s
         """
         cursor.execute(query, (nome, matricula_professor, id_disciplina))
+        # print(f"Disciplina editada: {id_disciplina}, Nome: {nome}, Matrícula do Professor: {matricula_professor}")
         conn.commit()
         return True
     except Exception as e:
         print(f"Erro ao editar disciplina: {e}")
         return False
     finally:
-        if cursor:
+        if cursor is not None:
             cursor.close()
-        if conn:
+        if conn is not None:
             conn.close()
+
 
 def EditarNotaModel(id_nota, matricula_aluno, id_disciplina, nota1, nota2, nota3):
     conn = None

@@ -2,22 +2,22 @@ from Model.EditarModel import EditarDisciplinaModel,EditarNotaModel
 
 def EditarDisciplinaController(id_disciplina, nome, matricula_professor):
     try:
+
         if not id_disciplina or not nome or not matricula_professor:
             return False, "Todos os campos são obrigatórios."
-        if not isinstance(id_disciplina, int) or not isinstance(matricula_professor, int):
-            return False, "ID da disciplina e matrícula do professor devem ser números inteiros."
-        if not isinstance(nome, str) or len(nome) < 3:
-            return False, "O nome da disciplina deve ter pelo menos 3 caracteres."
-    
-        result = EditarDisciplinaModel(id_disciplina, nome, matricula_professor)
+        nome = str(nome).strip()
+        matricula_professor = int(str(matricula_professor).strip())
+
+        result = EditarDisciplinaModel(id_disciplina, nome.strip(), matricula_professor)
         if result:
             return True, "Disciplina editada com sucesso."
         else:
             return False, "Erro ao editar disciplina. Verifique os dados e tente novamente."
+
     except Exception as e:
         return False, f"Erro ao editar disciplina: {str(e)}"
-    
 
+    
     
 def EditarNotaController(id_nota, matricula_aluno, id_disciplina, nota1, nota2, nota3):
     try:

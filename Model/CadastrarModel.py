@@ -120,7 +120,7 @@ def VerificarDisciplinaExistsModel(id_disciplina):
     try:
         conn = conectar()
         cursor = conn.cursor()
-        cursor.execute("SELECT id_disciplina FROM disciplina WHERE id_disciplina = %s", (id_disciplina))
+        cursor.execute("SELECT id_disciplina FROM disciplina WHERE id_disciplina = %s", (id_disciplina,))
         resultado = cursor.fetchone()
         cursor.close()
         conn.close()

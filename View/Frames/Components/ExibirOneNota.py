@@ -3,44 +3,40 @@ from customtkinter import *
 from Controller.ExcluirController import ExcluirNotaController
 from Controller.EditarController import EditarNotaController
 
+def ExibirOneNota(scroll,dados_tabela, callback_recarregar):
+        id_nota, matricula_aluno, id_disciplina, nota1, nota2, nota3, media = dados_tabela
 
-def ExibirNotaComponent(scroll, dados, callback_recarregar):
-
-    # 🏷️ Cabeçalhos
-    labels = ("ID Nota", "Matrícula Aluno", "ID Disciplina", "Nota 1", "Nota 2", "Nota 3", "Média", "Excluir", "Editar")
-    for idx, text in enumerate(labels):
-        header_label = CTkLabel(scroll, text=text, font=("Arial", 14))
-        header_label.grid(row=1, column=idx, padx=5, pady=5)
+        labels = ("ID Nota", "Matrícula Aluno", "ID Disciplina", "Nota 1", "Nota 2", "Nota 3", "Média", "Excluir", "Editar")
+        for idx, text in enumerate(labels):
+            header_label = CTkLabel(scroll, text=text, font=("Arial", 14))
+            header_label.grid(row=1, column=idx, padx=5, pady=5)
     
-    # 🔄 Gerar linhas de dados
-    for idx, (id_nota, matricula_aluno, id_disciplina, nota1, nota2, nota3, media) in enumerate(dados, start=2):
-        # 🔢 Campos de entrada
         entry_id_nota = CTkEntry(scroll, width=120, height=45)
         entry_id_nota.insert(0, id_nota)
         entry_id_nota.configure(state="readonly")
-        entry_id_nota.grid(row=idx, column=0, padx=5, pady=5)
+        entry_id_nota.grid(row=1, column=0, padx=5, pady=5)
 
         entry_matricula_aluno = CTkEntry(scroll, width=120, height=45)
         entry_matricula_aluno.insert(0, matricula_aluno)
         entry_matricula_aluno.configure(state="readonly")
-        entry_matricula_aluno.grid(row=idx, column=1, padx=5, pady=5)
+        entry_matricula_aluno.grid(row=1, column=1, padx=5, pady=5)
 
         entry_id_disciplina = CTkEntry(scroll, width=120, height=45)
         entry_id_disciplina.insert(0, id_disciplina)
         entry_id_disciplina.configure(state="readonly")
-        entry_id_disciplina.grid(row=idx, column=2, padx=5, pady=5)
+        entry_id_disciplina.grid(row=1, column=2, padx=5, pady=5)
 
         entry_nota1 = CTkEntry(scroll, width=120, height=45)
         entry_nota1.insert(0, nota1)
-        entry_nota1.grid(row=idx, column=3, padx=5, pady=5)
+        entry_nota1.grid(row=1, column=3, padx=5, pady=5)
 
         entry_nota2 = CTkEntry(scroll, width=120, height=45)
         entry_nota2.insert(0, nota2)
-        entry_nota2.grid(row=idx, column=4, padx=5, pady=5)
+        entry_nota2.grid(row=1, column=4, padx=5, pady=5)
 
         entry_nota3 = CTkEntry(scroll, width=120, height=45)
         entry_nota3.insert(0, nota3)
-        entry_nota3.grid(row=idx, column=5, padx=5, pady=5)
+        entry_nota3.grid(row=1, column=5, padx=5, pady=5)
 
         entry_media = CTkEntry(scroll, width=120, height=45)
         entry_media.insert(0, media)
